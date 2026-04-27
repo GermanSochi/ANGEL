@@ -43,7 +43,7 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
 /* Pulse CTA */
 @keyframes pulse-ring{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.5);opacity:0}}
 .btn-pulse{position:relative}
-.btn-pulse::before{content:'';position:absolute;inset:0;border-radius:inherit;background:rgba(122,158,120,0.22);animation:pulse-ring 2.4s ease-out infinite}
+.btn-pulse::before{content:'';position:absolute;inset:0;border-radius:inherit;background:rgba(122,158,120,0.22);animation:pulse-ring 2.4s ease-out infinite;pointer-events:none}
 
 /* Hero */
 .hero-overlay{background:linear-gradient(to right,rgba(20,12,6,0.68) 0%,rgba(20,12,6,0.48) 30%,rgba(20,12,6,0.18) 58%,transparent 82%)}
