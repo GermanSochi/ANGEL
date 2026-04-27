@@ -590,7 +590,7 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
 <!-- ══ JAVASCRIPT ══ -->
 <script>
 /* Config */
-const GH_REPO='GermanSochi/ANGEL', GH_FILE='data/content.json', GH_BRANCH='master', CACHE_VER='5';
+const GH_REPO='GermanSochi/ANGEL', GH_FILE='data/content.json', GH_BRANCH='master', CACHE_VER='6';
 function getToken(){ return localStorage.getItem('gh_token')||''; }
 
 /* UTF-8 base64 */
@@ -599,7 +599,7 @@ function b64EncodeUtf8(s){ return btoa(unescape(encodeURIComponent(s))); }
 
 /* Defaults */
 const DEF = {
-  _v:CACHE_VER,
+  _v:'6',
   heroTitle:'Остановись.\nТы заслуживаешь настоящего отдыха.',
   heroSubtitle:'Работа с телом, дыхание и восстановление ресурса — в безопасном женском пространстве.',
   offerTitle:'Первая встреча', offerSub:'Пробный сеанс — знакомство с методом и с собой. Без обязательств, без страшного.',
