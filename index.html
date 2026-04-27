@@ -51,9 +51,9 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
 /* Header */
 #site-header{transition:all .35s ease}
 #site-header.scrolled{background:rgba(253,248,242,0.96)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,26,14,0.08);box-shadow:0 2px 24px rgba(44,26,14,0.07)}
-/* Logo: white-bg JPG — invert+screen over dark hero, multiply over light scrolled header */
-.hdr-logo{filter:invert(1);mix-blend-mode:screen;transition:all .35s ease}
-#site-header.scrolled .hdr-logo{filter:none!important;mix-blend-mode:multiply!important;opacity:1!important}
+/* Logo: SVG with transparent bg — white over dark hero, dark on scrolled light header */
+.hdr-logo{filter:invert(1) brightness(1.8);opacity:.88;transition:all .35s ease}
+#site-header.scrolled .hdr-logo{filter:none!important;opacity:1!important}
 #site-header.scrolled .hdr-name{color:#2C1A0E!important}
 #site-header.scrolled .hdr-icon{border-color:rgba(44,26,14,0.18)!important;color:rgba(44,26,14,0.55)!important}
 #site-header.scrolled .hdr-cta{background:rgba(122,158,120,0.15)!important;border-color:rgba(122,158,120,0.5)!important;color:#5A8060!important}
@@ -104,7 +104,7 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50">
   <div style="max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;">
     <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-      <img src="pix/logo.jpg" alt="Логотип Ангелины Андросовой" class="hdr-logo" style="height:48px;width:48px;object-fit:cover;object-position:center top;border-radius:0;">
+      <img src="pix/logo.svg" alt="Логотип Ангелины Андросовой" class="hdr-logo" style="height:44px;width:auto;">
       <span class="hdr-name font-display" style="font-size:17px;letter-spacing:.04em;color:rgba(255,255,255,0.9);font-weight:400;transition:color .35s;">Ангелина Андросова</span>
     </a>
     <div style="display:flex;align-items:center;gap:8px;">

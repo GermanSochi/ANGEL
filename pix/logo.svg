@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 200" fill="none" stroke="#1A1410" stroke-linecap="round" stroke-linejoin="round">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 145" fill="none" stroke="#1A1410" stroke-linecap="round" stroke-linejoin="round">
 
   <!-- Moon crescent arc (large, ~3/4 circle, opening at upper-right) -->
   <path d="M 148,38 A 76,76 0 1,0 152,122" stroke-width="1.6"/>
