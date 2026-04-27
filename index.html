@@ -51,7 +51,9 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
 /* Header */
 #site-header{transition:all .35s ease}
 #site-header.scrolled{background:rgba(253,248,242,0.96)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,26,14,0.08);box-shadow:0 2px 24px rgba(44,26,14,0.07)}
-#site-header.scrolled .hdr-logo{filter:none!important;opacity:1!important}
+/* Logo: white-bg JPG — invert+screen over dark hero, multiply over light scrolled header */
+.hdr-logo{filter:invert(1);mix-blend-mode:screen;transition:all .35s ease}
+#site-header.scrolled .hdr-logo{filter:none!important;mix-blend-mode:multiply!important;opacity:1!important}
 #site-header.scrolled .hdr-name{color:#2C1A0E!important}
 #site-header.scrolled .hdr-icon{border-color:rgba(44,26,14,0.18)!important;color:rgba(44,26,14,0.55)!important}
 #site-header.scrolled .hdr-cta{background:rgba(122,158,120,0.15)!important;border-color:rgba(122,158,120,0.5)!important;color:#5A8060!important}
@@ -102,7 +104,7 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50">
   <div style="max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;">
     <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
-      <img src="pix/logo.svg" alt="Логотип" class="hdr-logo" style="height:38px;width:auto;filter:invert(1) brightness(2);opacity:.85;transition:all .3s;">
+      <img src="pix/logo.jpg" alt="Логотип Ангелины Андросовой" class="hdr-logo" style="height:48px;width:48px;object-fit:cover;object-position:center top;border-radius:0;">
       <span class="hdr-name font-display" style="font-size:17px;letter-spacing:.04em;color:rgba(255,255,255,0.9);font-weight:400;transition:color .35s;">Ангелина Андросова</span>
     </a>
     <div style="display:flex;align-items:center;gap:8px;">
@@ -121,8 +123,8 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
 <!-- ══ 1. HERO ══ -->
 <section style="min-height:100svh;position:relative;display:flex;align-items:flex-start;overflow:hidden;">
   <div style="position:absolute;inset:0;">
-    <img id="img-hero" src="pix/IMG_7994.JPG" alt="Ангелина Андросова"
-         style="width:100%;height:100%;object-fit:cover;object-position:65% center;">
+    <img id="img-hero" src="pix/33.png" alt="Ангелина Андросова"
+         style="width:100%;height:100%;object-fit:cover;object-position:55% 15%;">
     <div class="hero-overlay" style="position:absolute;inset:0;"></div>
   </div>
 
@@ -294,7 +296,7 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
             </div>
             <div style="padding-top:7px;">
               <h4 style="font-size:15px;font-weight:500;color:#2C1A0E;margin-bottom:6px;" id="text-step5-title">Завершение</h4>
-              <p style="font-size:13px;color:rgba(44,26,14,0.52);line-height:1.8;" id="text-step5-text">Мягкий выход из состояния. Чашка чая. Ты уходишь наполненной.</p>
+              <p style="font-size:13px;color:rgba(44,26,14,0.52);line-height:1.8;" id="text-step5-text">Мягкий выход из состояния. Ты уходишь наполненной.</p>
             </div>
           </div>
         </div>
@@ -406,8 +408,8 @@ body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;f
       <div class="reveal d2" style="display:grid;gap:10px;">
         <div style="height:280px;border-radius:20px;overflow:hidden;"><img id="img-about" src="pix/IMG_6466.PNG" alt="Ангелина" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-          <div style="height:170px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_7993.JPG" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div style="height:170px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_7994.JPG" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div style="height:170px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_7993.JPG" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;"></div>
+          <div style="height:170px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_7994.JPG" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
         </div>
       </div>
     </div>
@@ -607,10 +609,10 @@ const DEF = {
   step2Title:'Настрой', step2Text:'Свечи, аромат, тихая музыка. Ты начинаешь отдыхать ещё до начала практики.',
   step3Title:'Практика', step3Text:'Мягкая работа с телом — через точки, дыхание и голос. Тело начинает отпускать то, что держало.',
   step4Title:'Расслабление', step4Text:'Ты просто лежишь, дышишь, чувствуешь. Позволяешь себе быть в полном покое.',
-  step5Title:'Завершение', step5Text:'Мягкий выход из состояния. Чашка чая. Ты уходишь наполненной.',
+  step5Title:'Завершение', step5Text:'Мягкий выход из состояния. Ты уходишь наполненной.',
   trustTitle:'Здесь всё устроено так, чтобы ты чувствовала себя в безопасности',
   finalTitle:'Позволь себе\nперезагрузиться', finalSub:'Ты уже так долго держишься. Пора сделать что-то для себя. Первый шаг — просто написать.',
-  imgHero:'pix/IMG_7994.JPG', imgAbout:'pix/IMG_6466.PNG', imgSession:'pix/IMG_7989.JPG', imgRoom:'pix/IMG_8242.JPG',
+  imgHero:'pix/33.png', imgAbout:'pix/IMG_6466.PNG', imgSession:'pix/IMG_7989.JPG', imgRoom:'pix/IMG_8242.JPG',
   reviews:[
     {name:'Наталия',initial:'Н',color:'#7A9E78',text:'Ангелина — реально ангел хранитель. Наша работа началась в момент огромного стресса на работе. Ситуация изменилась волшебным образом. По-другому не назовёшь.'},
     {name:'Ирина',initial:'И',color:'#5A8C78',text:'Уже после первой сессии со мной и моим окружением стали происходить невероятные вещи. Я чувствую, как мои энергии расширяются и обновляются. Ты очень светлый, открытый человек.'},
