@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ангелина Андросова — Расслабляющий сеанс для женщин</title>
+<meta name="description" content="Расслабляющий сеанс для женщин: работа с телом, дыхание и восстановление ресурса.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { sage: { 300:'#C9DAC7', 400:'#A8C4A6', 500:'#8FAD8D', 600:'#7A9E78' } },
+    fontFamily: { display: ['Cormorant Garamond','Georgia','serif'] }
+  }}
+}
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#FDF8F2;color:#2C1A0E;font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.font-display{font-family:'Cormorant Garamond',Georgia,serif}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#EDE6DC}::-webkit-scrollbar-thumb{background:#C5B8A8;border-radius:3px}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+.reveal.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* Cards */
+.glass{background:rgba(255,255,255,0.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(44,26,14,0.09);box-shadow:0 2px 18px rgba(44,26,14,0.05)}
+.glass-sm{background:rgba(255,255,255,0.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(44,26,14,0.08)}
+.glass-hover{transition:background .25s,border-color .28s,transform .28s,box-shadow .28s}
+.glass-hover:hover{background:rgba(255,255,255,0.97);border-color:rgba(122,158,120,0.35);transform:translateY(-3px);box-shadow:0 12px 40px rgba(44,26,14,0.10)}
+
+/* Shimmer */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.shimmer{background:linear-gradient(90deg,#7A9E78,#5A8060,#7A9E78);background-size:200% auto;animation:shimmer 3s linear infinite;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Pulse CTA */
+@keyframes pulse-ring{0%{transform:scale(1);opacity:.45}100%{transform:scale(1.5);opacity:0}}
+.btn-pulse{position:relative}
+.btn-pulse::before{content:'';position:absolute;inset:0;border-radius:inherit;background:rgba(122,158,120,0.22);animation:pulse-ring 2.4s ease-out infinite}
+
+/* Hero */
+.hero-overlay{background:linear-gradient(to right,rgba(30,16,6,0.90) 0%,rgba(30,16,6,0.76) 28%,rgba(30,16,6,0.38) 54%,rgba(30,16,6,0.08) 76%,transparent 100%)}
+
+/* Header */
+#site-header{transition:all .35s ease}
+#site-header.scrolled{background:rgba(253,248,242,0.96)!important;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,26,14,0.08);box-shadow:0 2px 24px rgba(44,26,14,0.07)}
+#site-header.scrolled .hdr-logo{filter:none!important;opacity:1!important}
+#site-header.scrolled .hdr-name{color:#2C1A0E!important}
+#site-header.scrolled .hdr-icon{border-color:rgba(44,26,14,0.18)!important;color:rgba(44,26,14,0.55)!important}
+#site-header.scrolled .hdr-cta{background:rgba(122,158,120,0.15)!important;border-color:rgba(122,158,120,0.5)!important;color:#5A8060!important}
+
+/* Bento */
+.bento{display:grid;grid-template-columns:2fr 1fr;gap:10px}
+@media(max-width:640px){.bento{grid-template-columns:1fr}}
+
+/* Step line */
+.step-connector{position:absolute;left:19px;top:44px;bottom:-16px;width:1px;background:linear-gradient(to bottom,rgba(122,158,120,0.4),rgba(122,158,120,0))}
+
+/* FAQ */
+.faq-body{max-height:0;overflow:hidden;transition:max-height .42s ease}
+.faq-body.open{max-height:300px}
+
+/* Admin */
+.admin-drawer{position:fixed;top:0;right:0;bottom:0;width:480px;max-width:100vw;background:#0E0B09;border-left:1px solid rgba(255,255,255,0.08);z-index:200;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);overflow-y:auto;box-shadow:-10px 0 50px rgba(0,0,0,.5)}
+.admin-drawer.open{transform:translateX(0)}
+.a-input{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:10px 14px;font-size:14px;color:#F0EDE8;outline:none;transition:border-color .2s;resize:vertical;font-family:'Inter',sans-serif}
+.a-input:focus{border-color:rgba(122,158,120,0.6)}
+.a-lbl{font-size:11px;font-weight:500;color:rgba(255,255,255,0.38);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;display:block}
+.a-sect{padding:20px 22px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.admin-tab{padding:8px 14px;font-size:13px;font-weight:500;border-radius:8px;cursor:pointer;transition:all .2s;color:rgba(255,255,255,0.38);border:none;background:none}
+.admin-tab.active{background:rgba(122,158,120,0.18);color:#8FAD8D}
+#login-modal{position:fixed;inset:0;background:rgba(44,26,14,0.55);backdrop-filter:blur(14px);z-index:300;display:flex;align-items:center;justify-content:center}
+#login-modal.hidden{display:none}
+#admin-overlay{position:fixed;inset:0;background:rgba(44,26,14,0.35);z-index:199;opacity:0;pointer-events:none;transition:opacity .35s}
+#admin-overlay.open{opacity:1;pointer-events:all}
+
+/* Mobile hero */
+@media(max-width:768px){
+  .hero-overlay{background:linear-gradient(to bottom,rgba(30,16,6,.72) 0%,rgba(30,16,6,.48) 40%,rgba(30,16,6,.85) 100%)}
+  #img-hero{object-position:60% 0%!important}
+  #hero-content{padding:108px 24px 72px!important}
+}
+@media(max-width:900px){
+  .two-col{grid-template-columns:1fr!important}
+  .offer-inner{grid-template-columns:1fr!important}
+  .offer-wrap{padding:36px 24px!important}
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.float{animation:float 4s ease-in-out infinite}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50">
+  <div style="max-width:1200px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="#" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="pix/logo.svg" alt="Логотип" class="hdr-logo" style="height:38px;width:auto;filter:invert(1) brightness(2);opacity:.85;transition:all .3s;">
+      <span class="hdr-name font-display" style="font-size:17px;letter-spacing:.04em;color:rgba(255,255,255,0.9);font-weight:400;transition:color .35s;">Ангелина Андросова</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="https://www.instagram.com/angelina_androsove" target="_blank" class="hdr-icon" style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.65);transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background=''">
+        <i data-lucide="instagram" style="width:15px;height:15px;"></i>
+      </a>
+      <a href="https://t.me/angelina_androsova" target="_blank" class="hdr-icon" style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.65);transition:all .2s;text-decoration:none;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background=''">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </a>
+      <a href="#offer" class="hdr-cta" style="display:inline-flex;align-items:center;padding:10px 22px;background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.45);border-radius:100px;color:rgba(255,255,255,0.9);font-size:13px;font-weight:500;text-decoration:none;transition:all .25s;margin-left:6px;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">Записаться</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- ══ 1. HERO ══ -->
+<section style="min-height:100svh;position:relative;display:flex;align-items:flex-start;overflow:hidden;">
+  <div style="position:absolute;inset:0;">
+    <img id="img-hero" src="pix/IMG_0093.PNG" alt="Ангелина Андросова"
+         style="width:100%;height:100%;object-fit:cover;object-position:70% 0%;">
+    <div class="hero-overlay" style="position:absolute;inset:0;"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:130px;background:linear-gradient(to bottom,rgba(20,10,4,0.25) 0%,transparent 100%);"></div>
+  </div>
+
+  <div id="hero-content" style="position:relative;z-index:1;padding:148px 60px 80px;max-width:640px;">
+    <div class="reveal" style="display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;">
+      <div style="width:20px;height:1px;background:rgba(201,218,199,0.8);"></div>
+      <span style="font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:rgba(201,218,199,0.9);">Расслабляющий сеанс · Только для женщин</span>
+    </div>
+
+    <h1 class="font-display reveal d1" id="text-hero-title"
+        style="font-size:clamp(46px,6vw,88px);font-weight:300;line-height:1.05;letter-spacing:-.01em;color:#fff;margin-bottom:26px;text-shadow:0 2px 30px rgba(0,0,0,.35);">
+      Остановись.<br><em style="color:#C9DAC7;font-style:italic;">Ты заслуживаешь<br>настоящего отдыха.</em>
+    </h1>
+
+    <p class="reveal d2" id="text-hero-subtitle"
+       style="font-size:16px;color:rgba(255,255,255,0.72);line-height:1.9;max-width:400px;margin-bottom:48px;">
+      Работа с телом, дыхание и восстановление ресурса —<br>в безопасном женском пространстве.
+    </p>
+
+    <div class="reveal d3 btn-pulse" style="display:inline-block;border-radius:100px;">
+      <a href="https://t.me/angelina_androsova" target="_blank"
+         style="display:inline-block;padding:16px 44px;background:transparent;border:1.5px solid rgba(255,255,255,0.55);border-radius:100px;color:#fff;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:all .28s;"
+         onmouseover="this.style.background='rgba(255,255,255,0.14)';this.style.borderColor='rgba(255,255,255,0.9)'"
+         onmouseout="this.style.background='transparent';this.style.borderColor='rgba(255,255,255,0.55)'">
+        Записаться на сеанс
+      </a>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="reveal d5 float" style="margin-top:56px;display:flex;align-items:center;gap:10px;opacity:.45;">
+      <div style="width:1px;height:32px;background:linear-gradient(to bottom,rgba(255,255,255,0.6),transparent);"></div>
+      <span style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#fff;">Прокрути вниз</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 2. СТАТС-ПОЛОСА ══ -->
+<section style="padding:0;background:#F5EEE4;">
+  <div style="border-top:1px solid rgba(44,26,14,0.07);border-bottom:1px solid rgba(44,26,14,0.07);padding:28px 60px;">
+    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+      <p class="reveal font-display" style="font-size:clamp(17px,2.5vw,25px);color:rgba(44,26,14,0.72);font-style:italic;font-weight:300;">"Здесь нет чужих взглядов — только ты, твоё тело и тишина внутри."</p>
+      <div class="reveal d2" style="display:flex;gap:36px;flex-shrink:0;">
+        <div style="text-align:center;"><p class="font-display" style="font-size:30px;color:#7A9E78;font-weight:300;line-height:1;">60</p><p style="font-size:11px;color:rgba(44,26,14,0.38);margin-top:2px;letter-spacing:.1em;text-transform:uppercase;">минут</p></div>
+        <div style="width:1px;background:rgba(44,26,14,0.1);"></div>
+        <div style="text-align:center;"><p style="font-size:22px;color:#7A9E78;line-height:1.2;">♀</p><p style="font-size:11px;color:rgba(44,26,14,0.38);margin-top:2px;letter-spacing:.1em;text-transform:uppercase;">женщины</p></div>
+        <div style="width:1px;background:rgba(44,26,14,0.1);"></div>
+        <div style="text-align:center;"><p class="font-display" style="font-size:30px;color:#7A9E78;font-weight:300;line-height:1;">0</p><p style="font-size:11px;color:rgba(44,26,14,0.38);margin-top:2px;letter-spacing:.1em;text-transform:uppercase;">давления</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 3. ЧТО ЭТО ТАКОЕ ══ -->
+<section style="padding:100px 28px;background:#FDF8F2;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="reveal" style="text-align:center;margin-bottom:60px;">
+      <span class="shimmer" style="font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;">Что это такое</span>
+      <h2 class="font-display" id="text-about-title" style="font-size:clamp(34px,4.5vw,60px);font-weight:300;line-height:1.1;color:#2C1A0E;margin-top:14px;">
+        Не просто массаж.<br><em style="color:#7A9E78;">Работа с состоянием.</em>
+      </h2>
+      <p class="reveal d2" id="text-about-text" style="margin-top:20px;font-size:16px;color:rgba(44,26,14,0.58);line-height:1.9;max-width:540px;margin-left:auto;margin-right:auto;">
+        Мягкая телесная практика, которая помогает телу отпустить напряжение — то, которое не уходит через разговор, отдых или сериал.
+      </p>
+    </div>
+
+    <!-- Bento -->
+    <div class="bento reveal d2">
+      <div class="glass glass-hover" style="border-radius:20px;padding:36px;grid-row:span 2;">
+        <div style="width:44px;height:44px;border-radius:12px;background:rgba(122,158,120,0.13);display:flex;align-items:center;justify-content:center;margin-bottom:22px;">
+          <i data-lucide="hand" style="width:20px;height:20px;color:#7A9E78;stroke-width:1.5;"></i>
+        </div>
+        <span style="font-size:11px;font-weight:500;color:rgba(122,158,120,0.85);letter-spacing:.1em;text-transform:uppercase;">01</span>
+        <h3 style="font-size:18px;font-weight:500;color:#2C1A0E;margin:10px 0 12px;">Работа с точками напряжения</h3>
+        <p style="font-size:14px;color:rgba(44,26,14,0.52);line-height:1.8;">Бережные прикосновения, которые освобождают физические и эмоциональные зажимы. Тело помнит — и тело умеет отпускать.</p>
+      </div>
+      <div class="glass glass-hover" style="border-radius:20px;padding:28px;">
+        <div style="width:40px;height:40px;border-radius:11px;background:rgba(122,158,120,0.11);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <i data-lucide="wind" style="width:18px;height:18px;color:#7A9E78;stroke-width:1.5;"></i>
+        </div>
+        <span style="font-size:11px;font-weight:500;color:rgba(122,158,120,0.8);letter-spacing:.1em;text-transform:uppercase;">02</span>
+        <h3 style="font-size:16px;font-weight:500;color:#2C1A0E;margin:8px 0 8px;">Дыхательные практики</h3>
+        <p style="font-size:13px;color:rgba(44,26,14,0.5);line-height:1.75;">Восстановление ритма — выход из тревоги.</p>
+      </div>
+      <div class="glass glass-hover" style="border-radius:20px;padding:28px;">
+        <div style="width:40px;height:40px;border-radius:11px;background:rgba(122,158,120,0.11);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+          <i data-lucide="music" style="width:18px;height:18px;color:#7A9E78;stroke-width:1.5;"></i>
+        </div>
+        <span style="font-size:11px;font-weight:500;color:rgba(122,158,120,0.8);letter-spacing:.1em;text-transform:uppercase;">03</span>
+        <h3 style="font-size:16px;font-weight:500;color:#2C1A0E;margin:8px 0 8px;">Голос и звук</h3>
+        <p style="font-size:13px;color:rgba(44,26,14,0.5);line-height:1.75;">Расслабление на глубинном уровне.</p>
+      </div>
+      <div class="glass glass-hover" style="border-radius:20px;padding:28px;grid-column:1/-1;">
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="width:40px;height:40px;border-radius:11px;background:rgba(122,158,120,0.11);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <i data-lucide="zap" style="width:18px;height:18px;color:#7A9E78;stroke-width:1.5;"></i>
+          </div>
+          <div>
+            <span style="font-size:11px;font-weight:500;color:rgba(122,158,120,0.8);letter-spacing:.1em;text-transform:uppercase;">04</span>
+            <h3 style="font-size:16px;font-weight:500;color:#2C1A0E;margin:4px 0 4px;">Энергетическое восстановление</h3>
+            <p style="font-size:13px;color:rgba(44,26,14,0.5);line-height:1.75;">Возвращение ресурсного состояния — лёгкости, наполненности, себя.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 4. КАК ПРОХОДИТ СЕАНС ══ -->
+<section style="padding:100px 28px;background:#F5EEE4;border-top:1px solid rgba(44,26,14,0.07);border-bottom:1px solid rgba(44,26,14,0.07);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="two-col">
+      <div>
+        <div class="reveal" style="margin-bottom:52px;">
+          <span class="shimmer" style="font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;">Шаг за шагом</span>
+          <h2 class="font-display" style="font-size:clamp(30px,4vw,52px);font-weight:300;line-height:1.12;color:#2C1A0E;margin-top:14px;">Как проходит сеанс</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <!-- Step 1 -->
+          <div class="reveal" style="display:flex;gap:20px;padding-bottom:32px;position:relative;">
+            <div class="step-connector"></div>
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(122,158,120,0.14);border:1px solid rgba(122,158,120,0.35);display:flex;align-items:center;justify-content:center;">
+              <span class="font-display" style="color:#7A9E78;font-size:17px;font-weight:400;">1</span>
+            </div>
+            <div style="padding-top:7px;">
+              <h4 style="font-size:15px;font-weight:500;color:#2C1A0E;margin-bottom:6px;" id="text-step1-title">Встреча</h4>
+              <p style="font-size:13px;color:rgba(44,26,14,0.52);line-height:1.8;" id="text-step1-text">Тёплый разговор. Я узнаю о твоём состоянии — что беспокоит, чего хочется. Никакого давления.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="reveal d1" style="display:flex;gap:20px;padding-bottom:32px;position:relative;">
+            <div class="step-connector"></div>
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(122,158,120,0.14);border:1px solid rgba(122,158,120,0.35);display:flex;align-items:center;justify-content:center;">
+              <span class="font-display" style="color:#7A9E78;font-size:17px;font-weight:400;">2</span>
+            </div>
+            <div style="padding-top:7px;">
+              <h4 style="font-size:15px;font-weight:500;color:#2C1A0E;margin-bottom:6px;" id="text-step2-title">Настрой</h4>
+              <p style="font-size:13px;color:rgba(44,26,14,0.52);line-height:1.8;" id="text-step2-text">Свечи, аромат, тихая музыка. Ты начинаешь отдыхать ещё до начала практики.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="reveal d2" style="display:flex;gap:20px;padding-bottom:32px;position:relative;">
+            <div class="step-connector"></div>
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(122,158,120,0.14);border:1px solid rgba(122,158,120,0.35);display:flex;align-items:center;justify-content:center;">
+              <span class="font-display" style="color:#7A9E78;font-size:17px;font-weight:400;">3</span>
+            </div>
+            <div style="padding-top:7px;">
+              <h4 style="font-size:15px;font-weight:500;color:#2C1A0E;margin-bottom:6px;" id="text-step3-title">Практика</h4>
+              <p style="font-size:13px;color:rgba(44,26,14,0.52);line-height:1.8;" id="text-step3-text">Мягкая работа с телом — через точки, дыхание и голос. Тело начинает отпускать то, что держало.</p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="reveal d3" style="display:flex;gap:20px;padding-bottom:32px;position:relative;">
+            <div class="step-connector"></div>
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(122,158,120,0.14);border:1px solid rgba(122,158,120,0.35);display:flex;align-items:center;justify-content:center;">
+              <span class="font-display" style="color:#7A9E78;font-size:17px;font-weight:400;">4</span>
+            </div>
+            <div style="padding-top:7px;">
+              <h4 style="font-size:15px;font-weight:500;color:#2C1A0E;margin-bottom:6px;" id="text-step4-title">Расслабление</h4>
+              <p style="font-size:13px;color:rgba(44,26,14,0.52);line-height:1.8;" id="text-step4-text">Ты просто лежишь, дышишь, чувствуешь. Позволяешь себе быть в полном покое.</p>
+            </div>
+          </div>
+          <!-- Step 5 -->
+          <div class="reveal d4" style="display:flex;gap:20px;">
+            <div style="flex-shrink:0;width:40px;height:40px;border-radius:50%;background:rgba(122,158,120,0.14);border:1px solid rgba(122,158,120,0.35);display:flex;align-items:center;justify-content:center;">
+              <span class="font-display" style="color:#7A9E78;font-size:17px;font-weight:400;">5</span>
+            </div>
+            <div style="padding-top:7px;">
+              <h4 style="font-size:15px;font-weight:500;color:#2C1A0E;margin-bottom:6px;" id="text-step5-title">Завершение</h4>
+              <p style="font-size:13px;color:rgba(44,26,14,0.52);line-height:1.8;" id="text-step5-text">Мягкий выход из состояния. Чашка чая. Ты уходишь наполненной.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Фото коллаж -->
+      <div class="reveal d2" style="display:grid;gap:10px;padding-top:80px;">
+        <div style="height:300px;border-radius:20px;overflow:hidden;">
+          <img id="img-session" src="pix/IMG_7989.JPG" alt="Сеанс" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="height:165px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_5038.JPG" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div style="height:165px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_7988.JPG" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 5. ОФФЕР ══ -->
+<section style="padding:100px 28px;background:#FDF8F2;" id="offer">
+  <div style="max-width:920px;margin:0 auto;">
+    <div class="glass reveal" style="border-radius:28px;padding:60px;position:relative;overflow:hidden;">
+      <!-- Glow accent -->
+      <div style="position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(122,158,120,0.10) 0%,transparent 70%);pointer-events:none;"></div>
+
+      <div style="display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;" class="offer-inner">
+        <div>
+          <span class="shimmer" style="font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;">Начни здесь</span>
+          <h2 class="font-display" id="text-offer-title" style="font-size:clamp(32px,4vw,54px);font-weight:300;color:#2C1A0E;margin:14px 0 16px;">Первая встреча</h2>
+          <p style="font-size:15px;color:rgba(44,26,14,0.55);line-height:1.85;margin-bottom:36px;" id="text-offer-sub">Пробный сеанс — знакомство с методом и с собой. Без обязательств, без страшного.</p>
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:40px;">
+            <div style="display:flex;align-items:center;gap:14px;"><div style="width:16px;height:1px;background:#7A9E78;flex-shrink:0;"></div><p style="font-size:14px;color:rgba(44,26,14,0.55);">Работа с точками напряжения в теле</p></div>
+            <div style="display:flex;align-items:center;gap:14px;"><div style="width:16px;height:1px;background:#7A9E78;flex-shrink:0;"></div><p style="font-size:14px;color:rgba(44,26,14,0.55);">Дыхательные практики для снятия тревоги</p></div>
+            <div style="display:flex;align-items:center;gap:14px;"><div style="width:16px;height:1px;background:#7A9E78;flex-shrink:0;"></div><p style="font-size:14px;color:rgba(44,26,14,0.55);">Работа с голосом и состоянием</p></div>
+            <div style="display:flex;align-items:center;gap:14px;"><div style="width:16px;height:1px;background:#7A9E78;flex-shrink:0;"></div><p style="font-size:14px;color:rgba(44,26,14,0.55);">Энергетическое восстановление</p></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <a href="https://t.me/angelina_androsova" target="_blank" class="btn-pulse" style="display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:rgba(122,158,120,0.16);border:1.5px solid rgba(122,158,120,0.5);border-radius:100px;color:#5A8060;font-size:13px;font-weight:500;text-decoration:none;transition:all .25s;" onmouseover="this.style.background='rgba(122,158,120,0.27)'" onmouseout="this.style.background='rgba(122,158,120,0.16)'">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+              Telegram
+            </a>
+            <a href="https://wa.me/79189058877" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:transparent;border:1.5px solid rgba(44,26,14,0.18);border-radius:100px;color:rgba(44,26,14,0.6);font-size:13px;font-weight:500;text-decoration:none;transition:all .25s;" onmouseover="this.style.borderColor='rgba(44,26,14,0.38)';this.style.color='rgba(44,26,14,0.9)'" onmouseout="this.style.borderColor='rgba(44,26,14,0.18)';this.style.color='rgba(44,26,14,0.6)'">
+              <i data-lucide="message-circle" style="width:14px;height:14px;stroke-width:1.5;"></i>WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Число 60 -->
+        <div class="glass-sm offer-wrap" style="border-radius:20px;padding:48px 36px;text-align:center;min-width:180px;">
+          <p style="font-size:11px;color:rgba(44,26,14,0.38);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;">Длительность</p>
+          <p class="font-display" style="font-size:96px;color:#2C1A0E;line-height:1;font-weight:300;">60</p>
+          <p style="font-size:13px;color:rgba(44,26,14,0.42);margin-top:4px;">минут</p>
+          <div style="border-top:1px solid rgba(44,26,14,0.08);margin:28px 0;"></div>
+          <div style="display:flex;flex-direction:column;gap:10px;text-align:left;">
+            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="font-size:12px;color:rgba(44,26,14,0.38);">Формат</span><span style="font-size:12px;color:rgba(44,26,14,0.75);">Живой сеанс</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="font-size:12px;color:rgba(44,26,14,0.38);">Аудитория</span><span style="font-size:12px;color:rgba(44,26,14,0.75);">Только ♀</span></div>
+            <div style="display:flex;justify-content:space-between;gap:12px;"><span style="font-size:12px;color:rgba(44,26,14,0.38);">Первый раз</span><span style="font-size:12px;color:#7A9E78;font-weight:500;">Без опыта</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 6. ЦИТАТА-БАННЕР ══ -->
+<div style="position:relative;height:340px;overflow:hidden;">
+  <img id="img-room" src="pix/IMG_8242.JPG" alt="Студия" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+  <div style="position:absolute;inset:0;background:rgba(20,10,4,0.52);display:flex;align-items:center;justify-content:center;">
+    <p class="font-display reveal" style="font-size:clamp(22px,3.5vw,46px);color:#FDF8F2;font-style:italic;text-align:center;max-width:640px;padding:0 28px;line-height:1.35;font-weight:300;">"Тело помнит всё. Ему нужно только разрешение отпустить."</p>
+  </div>
+</div>
+
+
+<!-- ══ 7. ДОВЕРИЕ ══ -->
+<section style="padding:100px 28px;background:#FDF8F2;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;" class="two-col">
+      <div>
+        <div class="reveal" style="margin-bottom:44px;">
+          <span class="shimmer" style="font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;">Безопасность прежде всего</span>
+          <h2 class="font-display" id="text-trust-title" style="font-size:clamp(28px,3.5vw,48px);font-weight:300;line-height:1.15;color:#2C1A0E;margin-top:14px;">Здесь всё устроено так, чтобы ты чувствовала себя в безопасности</h2>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <div class="glass glass-hover reveal d1" style="border-radius:16px;padding:24px;display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:42px;height:42px;min-width:42px;border-radius:11px;background:rgba(122,158,120,0.12);display:flex;align-items:center;justify-content:center;">
+              <i data-lucide="lock" style="width:18px;height:18px;color:#7A9E78;stroke-width:1.5;"></i>
+            </div>
+            <div><h4 style="font-size:14px;font-weight:500;color:#2C1A0E;margin-bottom:6px;">Конфиденциальность</h4><p style="font-size:13px;color:rgba(44,26,14,0.50);line-height:1.75;">Всё, что происходит на сеансе — остаётся между нами. Никаких историй, никаких скриншотов.</p></div>
+          </div>
+          <div class="glass glass-hover reveal d2" style="border-radius:16px;padding:24px;display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:42px;height:42px;min-width:42px;border-radius:11px;background:rgba(122,158,120,0.12);display:flex;align-items:center;justify-content:center;">
+              <i data-lucide="heart" style="width:18px;height:18px;color:#7A9E78;stroke-width:1.5;"></i>
+            </div>
+            <div><h4 style="font-size:14px;font-weight:500;color:#2C1A0E;margin-bottom:6px;">Бережность</h4><p style="font-size:13px;color:rgba(44,26,14,0.50);line-height:1.75;">Никакого давления — ни физического, ни эмоционального. Работаю мягко и внимательно.</p></div>
+          </div>
+          <div class="glass glass-hover reveal d3" style="border-radius:16px;padding:24px;display:flex;gap:18px;align-items:flex-start;">
+            <div style="width:42px;height:42px;min-width:42px;border-radius:11px;background:rgba(122,158,120,0.12);display:flex;align-items:center;justify-content:center;">
+              <i data-lucide="smile" style="width:18px;height:18px;color:#7A9E78;stroke-width:1.5;"></i>
+            </div>
+            <div><h4 style="font-size:14px;font-weight:500;color:#2C1A0E;margin-bottom:6px;">Принятие без оценок</h4><p style="font-size:13px;color:rgba(44,26,14,0.50);line-height:1.75;">Прийти можно любой — уставшей, растерянной, в слезах. Здесь тебя примут такой, какая есть.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2" style="display:grid;gap:10px;">
+        <div style="height:280px;border-radius:20px;overflow:hidden;"><img id="img-about" src="pix/IMG_6466.PNG" alt="Ангелина" style="width:100%;height:100%;object-fit:cover;object-position:center top;"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div style="height:170px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_7993.JPG" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div style="height:170px;border-radius:16px;overflow:hidden;"><img src="pix/IMG_7994.JPG" alt="" style="width:100%;height:100%;object-fit:cover;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ 8. ОТЗЫВЫ ══ -->
+<section style="padding:100px 28px;background:#F5EEE4;border-top:1px solid rgba(44,26,14,0.07);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="reveal" style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px;">
+      <div>
+        <span class="shimmer" style="font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;">Живые слова</span>
+        <h2 class="font-display" style="font-size:clamp(28px,3.5vw,48px);font-weight:300;color:#2C1A0E;margin-top:14px;">Что говорят девушки</h2>
+      </div>
+      <a href="https://www.instagram.com/angelina_androsove" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:transparent;border:1.5px solid rgba(44,26,14,0.18);border-radius:100px;color:rgba(44,26,14,0.55);font-size:13px;text-decoration:none;transition:all .25s;" onmouseover="this.style.borderColor='rgba(44,26,14,0.38)';this.style.color='rgba(44,26,14,0.9)'" onmouseout="this.style.borderColor='rgba(44,26,14,0.18)';this.style.color='rgba(44,26,14,0.55)'">
+        <i data-lucide="instagram" style="width:14px;height:14px;stroke-width:1.5;"></i>Instagram
+      </a>
+    </div>
+    <div id="reviews-container" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;"></div>
+  </div>
+</section>
+
+
+<!-- ══ 9. FAQ ══ -->
+<section style="padding:100px 28px;background:#FDF8F2;">
+  <div style="max-width:680px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:52px;">
+      <span class="shimmer" style="font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;">Вопросы</span>
+      <h2 class="font-display" style="font-size:clamp(28px,3.5vw,48px);font-weight:300;color:#2C1A0E;margin-top:14px;">Отвечаю честно</h2>
+    </div>
+    <div id="faq-container" class="reveal d2"></div>
+  </div>
+</section>
+
+
+<!-- ══ 10. ФИНАЛЬНЫЙ CTA ══ -->
+<section style="padding:120px 28px;text-align:center;position:relative;overflow:hidden;background:#F5EEE4;border-top:1px solid rgba(44,26,14,0.07);">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(122,158,120,0.10) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="max-width:580px;margin:0 auto;position:relative;" class="reveal">
+    <span class="shimmer" style="font-size:11px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;">Ты заслуживаешь этого</span>
+    <h2 class="font-display" id="text-final-title" style="font-size:clamp(36px,5vw,72px);font-weight:300;color:#2C1A0E;margin:18px 0 22px;line-height:1.07;">
+      Позволь себе<br><em style="color:#7A9E78;">перезагрузиться</em>
+    </h2>
+    <p style="font-size:17px;color:rgba(44,26,14,0.55);line-height:1.85;max-width:460px;margin:0 auto 48px;" id="text-final-sub">Ты уже так долго держишься. Пора сделать что-то для себя. Первый шаг — просто написать.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:24px;">
+      <div class="btn-pulse" style="display:inline-block;border-radius:100px;">
+        <a href="https://t.me/angelina_androsova" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:17px 40px;background:rgba(122,158,120,0.18);border:1.5px solid rgba(122,158,120,0.55);border-radius:100px;color:#5A8060;font-size:14px;font-weight:500;text-decoration:none;transition:all .28s;" onmouseover="this.style.background='rgba(122,158,120,0.30)'" onmouseout="this.style.background='rgba(122,158,120,0.18)'">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          Записаться в Telegram
+        </a>
+      </div>
+      <a href="https://wa.me/79189058877" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:17px 40px;background:transparent;border:1.5px solid rgba(44,26,14,0.2);border-radius:100px;color:rgba(44,26,14,0.6);font-size:14px;font-weight:500;text-decoration:none;transition:all .28s;" onmouseover="this.style.borderColor='rgba(44,26,14,0.42)';this.style.color='rgba(44,26,14,0.9)'" onmouseout="this.style.borderColor='rgba(44,26,14,0.2)';this.style.color='rgba(44,26,14,0.6)'">
+        WhatsApp
+      </a>
+    </div>
+    <p style="font-size:12px;color:rgba(44,26,14,0.32);letter-spacing:.06em;">Отвечаю в течение дня · Без обязательств · Только для женщин</p>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer style="background:#2C1A0E;padding:40px 28px;border-top:none;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+    <div>
+      <p id="footer-trigger" class="font-display" style="font-size:15px;color:rgba(253,248,242,0.75);letter-spacing:.06em;cursor:default;user-select:none;">АНГЕЛИНА АНДРОСОВА</p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.28);margin-top:4px;letter-spacing:.14em;text-transform:uppercase;">Расслабляющий сеанс · Только для женщин</p>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <a href="https://www.instagram.com/angelina_androsove" target="_blank" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='rgba(255,255,255,0.35)'"><i data-lucide="instagram" style="width:13px;height:13px;"></i></a>
+      <a href="https://t.me/angelina_androsova" target="_blank" style="width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.35);transition:all .2s;text-decoration:none;" onmouseover="this.style.borderColor='rgba(255,255,255,0.5)';this.style.color='rgba(255,255,255,0.85)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='rgba(255,255,255,0.35)'"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+    </div>
+    <p style="font-size:11px;color:rgba(255,255,255,0.2);width:100%;text-align:center;border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;margin-top:8px;">© 2024 Ангелина Андросова · Все права защищены</p>
+  </div>
+</footer>
+
+
+<!-- ══ LOGIN MODAL ══ -->
+<div id="login-modal" class="hidden">
+  <div class="glass" style="border-radius:20px;padding:44px;width:340px;max-width:92vw;">
+    <h3 class="font-display" style="font-size:22px;margin-bottom:6px;color:#2C1A0E;">Вход в панель</h3>
+    <p style="font-size:13px;color:rgba(44,26,14,0.45);margin-bottom:28px;">Управление сайтом</p>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px;">
+      <input id="login-user" style="width:100%;background:#FDF8F2;border:1px solid rgba(44,26,14,0.18);border-radius:8px;padding:10px 14px;font-size:14px;color:#2C1A0E;outline:none;transition:border-color .2s;font-family:'Inter',sans-serif;" type="text" placeholder="Логин" autocomplete="off">
+      <input id="login-pass" style="width:100%;background:#FDF8F2;border:1px solid rgba(44,26,14,0.18);border-radius:8px;padding:10px 14px;font-size:14px;color:#2C1A0E;outline:none;transition:border-color .2s;font-family:'Inter',sans-serif;" type="password" placeholder="Пароль">
+    </div>
+    <p id="login-error" style="font-size:13px;color:#C05050;margin-bottom:12px;min-height:16px;"></p>
+    <div style="display:flex;gap:10px;">
+      <button onclick="doLogin()" style="flex:1;padding:13px;background:rgba(122,158,120,0.18);border:1.5px solid rgba(122,158,120,0.5);border-radius:10px;color:#5A8060;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='rgba(122,158,120,0.30)'" onmouseout="this.style.background='rgba(122,158,120,0.18)'">Войти</button>
+      <button onclick="closeLogin()" style="padding:13px 16px;background:transparent;border:1.5px solid rgba(44,26,14,0.15);border-radius:10px;color:rgba(44,26,14,0.45);font-size:14px;cursor:pointer;">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN ══ -->
+<div id="admin-overlay" onclick="closeAdmin()"></div>
+<div id="admin-panel" class="admin-drawer">
+  <div style="position:sticky;top:0;background:#0E0B09;border-bottom:1px solid rgba(255,255,255,0.07);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;z-index:10;">
+    <h3 class="font-display" style="font-size:18px;color:#F0EDE8;">Управление сайтом</h3>
+    <button onclick="closeAdmin()" style="width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,0.4);">✕</button>
+  </div>
+  <div style="padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;gap:4px;flex-wrap:wrap;">
+    <button class="admin-tab active" onclick="switchTab('texts',this)">Тексты</button>
+    <button class="admin-tab" onclick="switchTab('media',this)">Медиа</button>
+    <button class="admin-tab" onclick="switchTab('reviews',this)">Отзывы</button>
+    <button class="admin-tab" onclick="switchTab('settings',this)">Настройки</button>
+  </div>
+
+  <div id="tab-texts">
+    <div class="a-sect"><p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);margin-bottom:12px;">Hero</p>
+      <label class="a-lbl">Заголовок</label><textarea class="a-input" rows="2" id="a-hero-title" oninput="liveText('text-hero-title',this.value)"></textarea>
+      <label class="a-lbl" style="margin-top:10px;">Подзаголовок</label><textarea class="a-input" rows="2" id="a-hero-subtitle" oninput="liveText('text-hero-subtitle',this.value)"></textarea>
+    </div>
+    <div class="a-sect"><p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);margin-bottom:12px;">Оффер</p>
+      <label class="a-lbl">Заголовок</label><input class="a-input" id="a-offer-title" oninput="liveText('text-offer-title',this.value)">
+      <label class="a-lbl" style="margin-top:10px;">Подзаголовок</label><textarea class="a-input" rows="2" id="a-offer-sub" oninput="liveText('text-offer-sub',this.value)"></textarea>
+    </div>
+    <div class="a-sect"><p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);margin-bottom:12px;">Об услуге</p>
+      <label class="a-lbl">Заголовок</label><input class="a-input" id="a-about-title" oninput="liveText('text-about-title',this.value)">
+      <label class="a-lbl" style="margin-top:10px;">Текст</label><textarea class="a-input" rows="3" id="a-about-text" oninput="liveText('text-about-text',this.value)"></textarea>
+    </div>
+    <div class="a-sect"><p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);margin-bottom:12px;">Шаги</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div><label class="a-lbl">Шаг 1</label><input class="a-input" id="a-s1t" oninput="liveText('text-step1-title',this.value)"><textarea class="a-input" rows="2" id="a-s1x" style="margin-top:6px;" oninput="liveText('text-step1-text',this.value)"></textarea></div>
+        <div><label class="a-lbl">Шаг 2</label><input class="a-input" id="a-s2t" oninput="liveText('text-step2-title',this.value)"><textarea class="a-input" rows="2" id="a-s2x" style="margin-top:6px;" oninput="liveText('text-step2-text',this.value)"></textarea></div>
+        <div><label class="a-lbl">Шаг 3</label><input class="a-input" id="a-s3t" oninput="liveText('text-step3-title',this.value)"><textarea class="a-input" rows="2" id="a-s3x" style="margin-top:6px;" oninput="liveText('text-step3-text',this.value)"></textarea></div>
+        <div><label class="a-lbl">Шаг 4</label><input class="a-input" id="a-s4t" oninput="liveText('text-step4-title',this.value)"><textarea class="a-input" rows="2" id="a-s4x" style="margin-top:6px;" oninput="liveText('text-step4-text',this.value)"></textarea></div>
+        <div><label class="a-lbl">Шаг 5</label><input class="a-input" id="a-s5t" oninput="liveText('text-step5-title',this.value)"><textarea class="a-input" rows="2" id="a-s5x" style="margin-top:6px;" oninput="liveText('text-step5-text',this.value)"></textarea></div>
+      </div>
+    </div>
+    <div class="a-sect"><p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);margin-bottom:12px;">Финальный блок</p>
+      <label class="a-lbl">Заголовок</label><input class="a-input" id="a-final-title" oninput="liveText('text-final-title',this.value)">
+      <label class="a-lbl" style="margin-top:10px;">Подзаголовок</label><textarea class="a-input" rows="2" id="a-final-sub" oninput="liveText('text-final-sub',this.value)"></textarea>
+    </div>
+  </div>
+
+  <div id="tab-media" style="display:none;">
+    <div class="a-sect"><p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);margin-bottom:14px;">Изображения</p>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div><label class="a-lbl">Hero — портрет</label><input class="a-input" id="m-hero" placeholder="pix/..." oninput="liveImg('img-hero',this.value)"></div>
+        <div><label class="a-lbl">Об Ангелине</label><input class="a-input" id="m-about" placeholder="pix/..." oninput="liveImg('img-about',this.value)"></div>
+        <div><label class="a-lbl">Сеанс</label><input class="a-input" id="m-session" placeholder="pix/..." oninput="liveImg('img-session',this.value)"></div>
+        <div><label class="a-lbl">Баннер</label><input class="a-input" id="m-room" placeholder="pix/..." oninput="liveImg('img-room',this.value)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-reviews" style="display:none;">
+    <div class="a-sect">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);">Отзывы</p>
+        <button onclick="addReview()" style="font-size:12px;font-weight:500;color:#8FAD8D;background:rgba(122,158,120,0.15);border:1px solid rgba(122,158,120,0.3);border-radius:20px;padding:5px 14px;cursor:pointer;">+ Добавить</button>
+      </div>
+      <div id="admin-reviews-list" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+  </div>
+
+  <div id="tab-settings" style="display:none;">
+    <div class="a-sect">
+      <p style="font-size:12px;font-weight:600;color:rgba(240,237,232,0.6);margin-bottom:8px;">GitHub Token</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.3);line-height:1.6;margin-bottom:12px;">Personal Access Token для сохранения в GitHub.</p>
+      <input class="a-input" id="s-token" type="password" placeholder="github_pat_...">
+      <button onclick="saveToken()" style="margin-top:8px;font-size:13px;color:#8FAD8D;background:none;border:none;cursor:pointer;padding:0;">Сохранить токен →</button>
+    </div>
+    <div class="a-sect">
+      <p style="font-size:12px;font-weight:600;color:#E87070;margin-bottom:8px;">Сброс данных</p>
+      <button onclick="resetAll()" style="font-size:13px;color:#E87070;background:rgba(232,112,112,0.1);border:1px solid rgba(232,112,112,0.3);border-radius:20px;padding:8px 18px;cursor:pointer;">Сбросить все изменения</button>
+    </div>
+  </div>
+
+  <div style="position:sticky;bottom:0;background:#0E0B09;border-top:1px solid rgba(255,255,255,0.06);padding:14px 22px;display:flex;gap:10px;">
+    <button onclick="saveAll()" style="flex:1;padding:13px;background:rgba(122,158,120,0.22);border:1.5px solid rgba(122,158,120,0.5);border-radius:10px;color:#A8C4A6;font-size:14px;font-weight:500;cursor:pointer;">Сохранить</button>
+    <div id="save-status" style="font-size:13px;color:#8FAD8D;min-width:90px;text-align:center;display:flex;align-items:center;"></div>
+  </div>
+</div>
+
+
+<!-- ══ JAVASCRIPT ══ -->
+<script>
+/* Config */
+const GH_REPO='GermanSochi/ANGEL', GH_FILE='data/content.json', GH_BRANCH='master', CACHE_VER='5';
+function getToken(){ return localStorage.getItem('gh_token')||''; }
+
+/* UTF-8 base64 */
+function b64DecodeUtf8(s){ try{ return decodeURIComponent(escape(atob(s.replace(/\s/g,'')))); }catch(e){ return new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\s/g,'')),c=>c.charCodeAt(0))); } }
+function b64EncodeUtf8(s){ return btoa(unescape(encodeURIComponent(s))); }
+
+/* Defaults */
+const DEF = {
+  _v:CACHE_VER,
+  heroTitle:'Остановись.\nТы заслуживаешь настоящего отдыха.',
+  heroSubtitle:'Работа с телом, дыхание и восстановление ресурса — в безопасном женском пространстве.',
+  offerTitle:'Первая встреча', offerSub:'Пробный сеанс — знакомство с методом и с собой. Без обязательств, без страшного.',
+  aboutTitle:'Не просто массаж.\nРабота с состоянием.',
+  aboutText:'Мягкая телесная практика, которая помогает телу отпустить напряжение — то, которое не уходит через разговор, отдых или сериал.',
+  step1Title:'Встреча', step1Text:'Тёплый разговор. Я узнаю о твоём состоянии — что беспокоит, чего хочется. Никакого давления.',
+  step2Title:'Настрой', step2Text:'Свечи, аромат, тихая музыка. Ты начинаешь отдыхать ещё до начала практики.',
+  step3Title:'Практика', step3Text:'Мягкая работа с телом — через точки, дыхание и голос. Тело начинает отпускать то, что держало.',
+  step4Title:'Расслабление', step4Text:'Ты просто лежишь, дышишь, чувствуешь. Позволяешь себе быть в полном покое.',
+  step5Title:'Завершение', step5Text:'Мягкий выход из состояния. Чашка чая. Ты уходишь наполненной.',
+  trustTitle:'Здесь всё устроено так, чтобы ты чувствовала себя в безопасности',
+  finalTitle:'Позволь себе\nперезагрузиться', finalSub:'Ты уже так долго держишься. Пора сделать что-то для себя. Первый шаг — просто написать.',
+  imgHero:'pix/IMG_0093.PNG', imgAbout:'pix/IMG_6466.PNG', imgSession:'pix/IMG_7989.JPG', imgRoom:'pix/IMG_8242.JPG',
+  reviews:[
+    {name:'Наталия',initial:'Н',color:'#7A9E78',text:'Ангелина — реально ангел хранитель. Наша работа началась в момент огромного стресса на работе. Ситуация изменилась волшебным образом. По-другому не назовёшь.'},
+    {name:'Ирина',initial:'И',color:'#5A8C78',text:'Уже после первой сессии со мной и моим окружением стали происходить невероятные вещи. Я чувствую, как мои энергии расширяются и обновляются. Ты очень светлый, открытый человек.'},
+    {name:'Анна',initial:'А',color:'#8A7E6A',text:'После тебя мы с мужем перестали ругаться. Я сама не поняла как. Просто в груди перестало всё закипать. Ты чудо.'},
+    {name:'Ольга',initial:'О',color:'#6A7E8A',text:'Благодарю, Ангелина! Мысли поменялись, трансформация пошла. Мне хочется сказать — «как долго я тебя ждала!». Жду новой сессии.'},
+    {name:'Таня',initial:'Т',color:'#8A7A6A',text:'Начало отпускать тревогу с первой же работы. Сегодня меня ничего не тревожит. Благодарю за рекомендации — вечером всё сделала, и стало так легко.'},
+    {name:'Даша',initial:'Д',color:'#5A7A5A',text:'Ангелина работает через тело и энергию — просто читала мои мысли, находила блоки в теле. Я мало кого выбираю в свои проводники. Ангелина — такой человек.'}
+  ],
+  faq:[
+    {q:'Это массаж или психология?',a:'Ни то и ни другое в привычном смысле. Это телесная практика — работа с телом, состоянием и энергией. Через мягкое прикосновение, дыхание и голос тело отпускает напряжение, которое не уходит через разговор.'},
+    {q:'Это безопасно?',a:'Да. Работаю мягко, без резких воздействий. Начинаю всегда с короткого разговора. Ты всегда управляешь процессом — можешь остановить в любой момент.'},
+    {q:'Можно ли прийти первый раз?',a:'Именно для этого и создан вводный сеанс. Без опыта, без подготовки, без ожиданий. Просто приходишь — и всё.'},
+    {q:'Нужно ли раздеваться?',a:'Нет. Работаю через одежду — в удобной, свободной одежде. Всё комфортно и бережно.'},
+    {q:'Сколько длится сеанс?',a:'Первый сеанс — 60 минут. Это час, который полностью принадлежит тебе.'},
+    {q:'Почему только женщины?',a:'Для глубокого расслабления важно ощущение полной безопасности. Женское пространство — это условие, при котором тело и душа по-настоящему раскрываются.'}
+  ]
+};
+
+let C = {};
+
+/* Load */
+async function loadContent(){
+  try{
+    const cached=localStorage.getItem('site_content');
+    if(cached){ const p=JSON.parse(cached); if(p._v===CACHE_VER){ C=p; return; } localStorage.removeItem('site_content'); }
+  }catch(e){ localStorage.removeItem('site_content'); }
+  try{
+    const tok=getToken(), headers=tok?{Authorization:`token ${tok}`}:{};
+    const res=await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}?ref=${GH_BRANCH}&t=${Date.now()}`,{headers});
+    if(!res.ok) throw new Error();
+    const d=await res.json();
+    C=JSON.parse(b64DecodeUtf8(d.content)); C._v=CACHE_VER;
+    localStorage.setItem('gh_sha',d.sha); localStorage.setItem('site_content',JSON.stringify(C));
+  }catch(e){ C=JSON.parse(JSON.stringify(DEF)); }
+}
+
+/* Apply */
+function applyContent(){
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v||'';};
+  const img=(id,v)=>{const e=document.getElementById(id);if(e&&v)e.src=v;};
+  const d=DEF;
+  set('text-hero-title',C.heroTitle||d.heroTitle);
+  set('text-hero-subtitle',C.heroSubtitle||d.heroSubtitle);
+  set('text-offer-title',C.offerTitle||d.offerTitle);
+  set('text-offer-sub',C.offerSub||d.offerSub);
+  set('text-about-title',C.aboutTitle||d.aboutTitle);
+  set('text-about-text',C.aboutText||d.aboutText);
+  set('text-step1-title',C.step1Title||d.step1Title); set('text-step1-text',C.step1Text||d.step1Text);
+  set('text-step2-title',C.step2Title||d.step2Title); set('text-step2-text',C.step2Text||d.step2Text);
+  set('text-step3-title',C.step3Title||d.step3Title); set('text-step3-text',C.step3Text||d.step3Text);
+  set('text-step4-title',C.step4Title||d.step4Title); set('text-step4-text',C.step4Text||d.step4Text);
+  set('text-step5-title',C.step5Title||d.step5Title); set('text-step5-text',C.step5Text||d.step5Text);
+  set('text-final-title',C.finalTitle||d.finalTitle);
+  set('text-final-sub',C.finalSub||d.finalSub);
+  img('img-hero',C.imgHero||d.imgHero);
+  img('img-about',C.imgAbout||d.imgAbout);
+  img('img-session',C.imgSession||d.imgSession);
+  img('img-room',C.imgRoom||d.imgRoom);
+  renderReviews(); renderFaq();
+}
+
+/* Reviews */
+function renderReviews(){
+  const list=C.reviews||DEF.reviews;
+  const el=document.getElementById('reviews-container');
+  if(!el) return;
+  el.innerHTML=list.map(r=>`
+    <div class="glass glass-hover" style="border-radius:18px;padding:26px;cursor:default;">
+      <p style="color:#7A9E78;letter-spacing:3px;font-size:12px;margin-bottom:14px;">★★★★★</p>
+      <p style="font-size:14px;color:rgba(44,26,14,0.65);line-height:1.85;margin-bottom:20px;">"${r.text}"</p>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:${r.color||'#7A9E78'}22;border:1px solid ${r.color||'#7A9E78'}55;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <span class="font-display" style="color:${r.color||'#7A9E78'};font-size:16px;">${r.initial||r.name[0]}</span>
+        </div>
+        <div><p style="font-size:14px;font-weight:500;color:#2C1A0E;">${r.name}</p><p style="font-size:12px;color:rgba(44,26,14,0.38);">клиентка</p></div>
+      </div>
+    </div>`).join('');
+}
+
+/* FAQ */
+function renderFaq(){
+  const list=C.faq||DEF.faq;
+  const el=document.getElementById('faq-container');
+  if(!el) return;
+  el.innerHTML=list.map((f,i)=>`
+    <div style="border-bottom:1px solid rgba(44,26,14,0.09);">
+      <button onclick="toggleFaq(${i})" style="width:100%;background:none;border:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;">
+        <span style="font-size:15px;color:rgba(44,26,14,0.85);">${f.q}</span>
+        <span id="fi${i}" style="width:28px;height:28px;min-width:28px;border-radius:50%;border:1px solid rgba(122,158,120,0.45);color:#7A9E78;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .3s;">+</span>
+      </button>
+      <div id="fb${i}" class="faq-body"><p style="padding-bottom:20px;font-size:14px;color:rgba(44,26,14,0.52);line-height:1.85;">${f.a}</p></div>
+    </div>`).join('');
+}
+function toggleFaq(i){
+  const b=document.getElementById('fb'+i),ic=document.getElementById('fi'+i),open=b.classList.contains('open');
+  document.querySelectorAll('.faq-body').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('[id^="fi"]').forEach(x=>{x.textContent='+';x.style.background='';x.style.color='#7A9E78';});
+  if(!open){b.classList.add('open');ic.textContent='×';ic.style.background='rgba(122,158,120,0.15)';ic.style.color='#5A8060';}
+}
+
+/* Admin login */
+let clicks=0,cTimer;
+document.getElementById('footer-trigger').addEventListener('click',()=>{
+  clicks++; clearTimeout(cTimer); cTimer=setTimeout(()=>clicks=0,2500);
+  if(clicks>=5){clicks=0;openLogin();}
+});
+function openLogin(){document.getElementById('login-modal').classList.remove('hidden');}
+function closeLogin(){document.getElementById('login-modal').classList.add('hidden');document.getElementById('login-error').textContent='';}
+document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+function doLogin(){
+  if(document.getElementById('login-user').value==='admin'&&document.getElementById('login-pass').value==='admin1234'){closeLogin();openAdmin();}
+  else document.getElementById('login-error').textContent='Неверный логин или пароль';
+}
+
+/* Admin panel */
+function openAdmin(){ fillFields(); renderAdminReviews(); document.getElementById('admin-panel').classList.add('open'); document.getElementById('admin-overlay').classList.add('open'); }
+function closeAdmin(){ document.getElementById('admin-panel').classList.remove('open'); document.getElementById('admin-overlay').classList.remove('open'); }
+function switchTab(n,btn){
+  ['texts','media','reviews','settings'].forEach(t=>document.getElementById('tab-'+t).style.display=t===n?'block':'none');
+  document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+  if(n==='reviews') renderAdminReviews();
+}
+function fillFields(){
+  const f=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v||'';};
+  const s={...DEF,...C};
+  f('a-hero-title',s.heroTitle);f('a-hero-subtitle',s.heroSubtitle);
+  f('a-offer-title',s.offerTitle);f('a-offer-sub',s.offerSub);
+  f('a-about-title',s.aboutTitle);f('a-about-text',s.aboutText);
+  f('a-s1t',s.step1Title);f('a-s1x',s.step1Text);f('a-s2t',s.step2Title);f('a-s2x',s.step2Text);
+  f('a-s3t',s.step3Title);f('a-s3x',s.step3Text);f('a-s4t',s.step4Title);f('a-s4x',s.step4Text);
+  f('a-s5t',s.step5Title);f('a-s5x',s.step5Text);
+  f('a-final-title',s.finalTitle);f('a-final-sub',s.finalSub);
+  f('m-hero',s.imgHero);f('m-about',s.imgAbout);f('m-session',s.imgSession);f('m-room',s.imgRoom);
+}
+function liveText(id,v){const e=document.getElementById(id);if(e)e.textContent=v;}
+function liveImg(id,v){if(!v)return;const e=document.getElementById(id);if(e)e.src=v;}
+function renderAdminReviews(){
+  const list=C.reviews||JSON.parse(JSON.stringify(DEF.reviews));
+  document.getElementById('admin-reviews-list').innerHTML=list.map((r,i)=>`
+    <div style="border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:12px;">
+      <div style="display:flex;gap:8px;margin-bottom:8px;">
+        <input class="a-input" style="flex:0 0 90px;" value="${r.name}" placeholder="Имя" onchange="updRev(${i},'name',this.value)">
+        <input class="a-input" style="flex:0 0 44px;text-align:center;" value="${r.initial||r.name[0]}" onchange="updRev(${i},'initial',this.value)">
+      </div>
+      <textarea class="a-input" rows="3" onchange="updRev(${i},'text',this.value)">${r.text}</textarea>
+      <div style="display:flex;gap:6px;margin-top:8px;">
+        <button onclick="mvRev(${i},-1)" style="font-size:12px;color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:3px 10px;cursor:pointer;">↑</button>
+        <button onclick="mvRev(${i},1)" style="font-size:12px;color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:3px 10px;cursor:pointer;">↓</button>
+        <button onclick="delRev(${i})" style="font-size:12px;color:#E87070;background:rgba(232,112,112,0.08);border:1px solid rgba(232,112,112,0.2);border-radius:6px;padding:3px 10px;cursor:pointer;margin-left:auto;">Удалить</button>
+      </div>
+    </div>`).join('');
+}
+function ensureRevs(){if(!C.reviews)C.reviews=JSON.parse(JSON.stringify(DEF.reviews));}
+function updRev(i,k,v){ensureRevs();C.reviews[i][k]=v;renderReviews();}
+function delRev(i){ensureRevs();C.reviews.splice(i,1);renderReviews();renderAdminReviews();}
+function mvRev(i,d){ensureRevs();const n=i+d;if(n<0||n>=C.reviews.length)return;[C.reviews[i],C.reviews[n]]=[C.reviews[n],C.reviews[i]];renderReviews();renderAdminReviews();}
+function addReview(){ensureRevs();C.reviews.push({name:'Имя',initial:'И',color:'#7A9E78',text:'Текст отзыва...'});renderReviews();renderAdminReviews();}
+function collectContent(){
+  const g=id=>{const e=document.getElementById(id);return e?e.value:'';};
+  C.heroTitle=g('a-hero-title');C.heroSubtitle=g('a-hero-subtitle');
+  C.offerTitle=g('a-offer-title');C.offerSub=g('a-offer-sub');
+  C.aboutTitle=g('a-about-title');C.aboutText=g('a-about-text');
+  C.step1Title=g('a-s1t');C.step1Text=g('a-s1x');C.step2Title=g('a-s2t');C.step2Text=g('a-s2x');
+  C.step3Title=g('a-s3t');C.step3Text=g('a-s3x');C.step4Title=g('a-s4t');C.step4Text=g('a-s4x');
+  C.step5Title=g('a-s5t');C.step5Text=g('a-s5x');
+  C.finalTitle=g('a-final-title');C.finalSub=g('a-final-sub');
+  C.imgHero=g('m-hero')||DEF.imgHero; C.imgAbout=g('m-about')||DEF.imgAbout;
+  C.imgSession=g('m-session')||DEF.imgSession; C.imgRoom=g('m-room')||DEF.imgRoom;
+  C._v=CACHE_VER;
+}
+async function saveAll(){
+  collectContent(); applyContent();
+  const btn=document.querySelector('[onclick="saveAll()"]'), st=document.getElementById('save-status');
+  btn.textContent='Сохраняю...'; btn.disabled=true;
+  const token=getToken(); localStorage.setItem('site_content',JSON.stringify(C));
+  if(token){
+    try{
+      const sha=localStorage.getItem('gh_sha');
+      const body={message:'Update content',content:b64EncodeUtf8(JSON.stringify(C,null,2)),branch:GH_BRANCH};
+      if(sha)body.sha=sha;
+      const res=await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`,{method:'PUT',headers:{Authorization:`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});
+      const d=await res.json(); if(d.content?.sha)localStorage.setItem('gh_sha',d.content.sha);
+      st.textContent=res.ok?'✓ GitHub':'✗ Ошибка'; st.style.color=res.ok?'#8FAD8D':'#E87070';
+    }catch(e){st.textContent='✓ Локально';st.style.color='#A8C4A6';}
+  }else{st.textContent='✓ Локально';st.style.color='#A8C4A6';}
+  btn.textContent='Сохранить'; btn.disabled=false; setTimeout(()=>st.textContent='',4000);
+}
+function saveToken(){const v=document.getElementById('s-token').value.trim();if(v&&!v.includes('...'))localStorage.setItem('gh_token',v);document.getElementById('s-token').value=v.slice(0,8)+'...';}
+function resetAll(){if(!confirm('Сбросить все изменения?'))return;localStorage.removeItem('site_content');localStorage.removeItem('gh_sha');C=JSON.parse(JSON.stringify(DEF));applyContent();fillFields();renderAdminReviews();}
+
+/* Scroll reveal */
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* Header scroll */
+window.addEventListener('scroll',()=>document.getElementById('site-header').classList.toggle('scrolled',scrollY>80));
+
+/* Lucide icons */
+lucide.createIcons();
+
+/* Init */
+(async()=>{ await loadContent(); applyContent(); })();
+</script>
+</body>
